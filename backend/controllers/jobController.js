@@ -51,7 +51,7 @@ const createJob = async (req, res) => {
     }
 
     try {
-        const job = await job.create({ jobTitle, company, industry, hiringManager, jobSpec, coverLetter, dateApplied, response, nextSteps })
+        const job = await Job.create({ jobTitle, company, industry, hiringManager, jobSpec, coverLetter, dateApplied, response, nextSteps })
         res.status(200).json(job)
     } catch (error) {
         res.status(400).json({ error: error.message })

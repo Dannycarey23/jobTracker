@@ -13,7 +13,7 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('api/jobs', jobRoutes)
+app.use('/api/jobs', jobRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
