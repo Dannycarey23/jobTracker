@@ -28,7 +28,7 @@ const jobSchema = new Schema({
         required: false
     },
     dateApplied: {
-        type: Date,
+        type: String,
         required: true
     },
     response: {
