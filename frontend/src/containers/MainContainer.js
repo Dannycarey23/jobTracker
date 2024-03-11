@@ -1,17 +1,38 @@
 import NavBar from "../components/NavBar";
+// import JobForm from "../components/JobForm";
 import Footer from "../components/Footer";
+import { useEffect, useState } from "react";
 
 
 const MainContainer = () => {
 
+    const [jobs, setJobs] = useState(null)
+
+    useEffect(() => {
+        const fetchJobs = async () => {
+            const response = await fetch('/api/jobs')
+            const json = await response.json()
+
+            if (response.ok) {
+                setJobs(json)
+            }
+        }
+
+        fetchJobs()
+    }, [])
+
     return (
-        <>
+        <div className='mainContainer'>
+
             <NavBar />
-            <h1 className="text-3xl font-bold underline">
-                Hello world!
-            </h1>
+            <div className="jobList">
+                {jobs && jobs.map((job) => (
+                    <p key={job._id}>{job.jobTitle}</p>
+                ))}
+            </div>
+
             <Footer />
-        </>
+        </div>
     )
 }
 
