@@ -4,20 +4,15 @@ const NavBar = () => {
 
     return (
 
-        <header>
-            <Link to="/">
+        <nav className="container mx-auto">
+            <Link to="/" >
                 <img src="assets/JTLogo.png" alt="Project logo"></img>
             </Link>
-            <hr></hr>
-            <nav>
-                <ul>
-                    <Link to="/jobs"><li>Jobs</li></Link>
-                    <Link to="/diary"><li>Diary</li></Link>
-                    <Link to="/careers"><li>Links</li></Link>
-                </ul>
-            </nav>
+            <Link to="/jobs" className="pr-2"><u>Jobs</u></Link>
+            <Link to="/careers"><u>Links</u></Link>
+        </nav>
 
-        </header>
+
     )
 }
 
